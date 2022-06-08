@@ -3,7 +3,6 @@ package com.example.firebaseaula.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.firebaseaula.data.UserHelper
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -24,7 +23,6 @@ class AccessViewModel : ViewModel() {
         registerTask.addOnFailureListener {
             onUserRequestToRegister.value = registerTask.isSuccessful
         }
-
 
     }
 
