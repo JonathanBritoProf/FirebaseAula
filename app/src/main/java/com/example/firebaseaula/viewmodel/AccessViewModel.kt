@@ -6,20 +6,22 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class AcessViewModel : ViewModel() {
+class AccessViewModel : ViewModel() {
 
     var onUserRequestToRegister = MutableLiveData<Boolean>()
-    var EmailAuthLiveData : LiveData<Boolean> = onUserRequestToRegister
+    var emailAuthLiveData : LiveData<Boolean> = onUserRequestToRegister
 
-    fun onRequestToCreateUser (email : String , password : String) {
+    fun onCreateUser (email : String , password : String) {
        var firebaseAuth = Firebase.auth
-       var task = firebaseAuth.createUserWithEmailAndPassword(email,password)
-       task.addOnSuccessListener {
+       var registerTask = firebaseAuth.createUserWithEmailAndPassword(email,password)
+        registerTask.addOnSuccessListener {
            onUserRequestToRegister.value = true
        }
-       task.addOnFailureListener {
+        registerTask.addOnFailureListener {
            onUserRequestToRegister.value = false
        }
     }
+
+
 
 }
