@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "590170438234",
+    "project_id": "digitalhousefb-9d179",
+    "storage_bucket": "digitalhousefb-9d179.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:590170438234:android:35fa2075adfb05a3d43663",
+        "android_client_info": {
+          "package_name": "com.example.firebaseaula"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "590170438234-0vn8p008aei89ntq22nieqtck5b8lpq0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCI0IQgEso3gRFgpFp5Q2p7bmI6FzhLQSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "590170438234-0vn8p008aei89ntq22nieqtck5b8lpq0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FirebaseAula</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_register">Cadastrar</string>
+</resources>
