@@ -39,7 +39,7 @@ class FragmentRegister : Fragment(R.layout.fragment_register) {
         }
     }
     private fun setupObserver() {
-        accessViewModel.emailAuthLiveData.observe(viewLifecycleOwner){
+        accessViewModel.createUserLiveData.observe(viewLifecycleOwner){
             if(it){
                findNavController().navigate(R.id.action_fragmentRegister_to_fragmentLogin)
                Toast.makeText(requireContext(),"Usuario Criado com sucesso",Toast.LENGTH_SHORT).show()

@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.firebaseaula.R
 import com.example.firebaseaula.viewmodel.AccessViewModel
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlin.math.sign
 
 class FragmentLogin : Fragment(R.layout.fragment_login) {
@@ -31,15 +34,27 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
         signInbtn = view.findViewById(R.id.btnlogin)
         registerBtn =  view.findViewById(R.id.btncadastrar)
         setupListeners()
+        setupObserver()
     }
 
-    fun setupListeners() {
+    private fun setupListeners() {
         signInbtn.setOnClickListener {
-
+            accessViewModel.onSignIn(emailTxt.text.toString(),passwordTxt.text.toString())
         }
 
         registerBtn.setOnClickListener {
             findNavController().navigate(R.id.action_fragmentLogin_to_fragmentRegister)
+        }
+    }
+
+    private fun setupObserver() {
+        accessViewModel.userAuthLiveData.observe(viewLifecycleOwner){
+            if(it) {
+                findNavController().navigate(R.id.action_fragmentLogin_to_fragmentMain)
+                Toast.makeText(requireContext(),"Usuario criado com sucesso", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(),"Erro ao realizar Login, verifique os dados digitados", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

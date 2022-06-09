@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_fragmentLogin_to_fragmentRegister"
             app:destination="@id/fragmentRegister" />
+        <action
+            android:id="@+id/action_fragmentLogin_to_fragmentMain"
+            app:destination="@id/fragmentMain" />
     </fragment>
     <fragment
         android:id="@+id/fragmentRegister"
@@ -23,4 +26,10 @@
             android:id="@+id/action_fragmentRegister_to_fragmentLogin"
             app:destination="@id/fragmentLogin" />
     </fragment>
+    <fragment
+        android:id="@+id/fragmentMain"
+        android:name="com.example.firebaseaula.ui.FragmentMain"
+        android:label="FragmentMain"
+        tools:layout="@layout/fragment_main"
+        />
 </navigation>
