@@ -36,17 +36,6 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
         registerBtn =  view.findViewById(R.id.btncadastrar)
         setupListeners()
         setupObserver()
-
-        var id = "10203050"
-        var user =  User("Ricardo","Teste","ricardo@teste.com","123@abc")
-        var database = Firebase.database.getReference("users")
-        database.child(id).setValue(user).addOnSuccessListener{
-            Toast.makeText(requireContext(),"Sucesso",Toast.LENGTH_SHORT).show()
-        }.addOnFailureListener {
-            Log.e("TAG","OnError",it)
-            Toast.makeText(requireContext(),"Erro",Toast.LENGTH_SHORT).show()
-        }
-
     }
 
     private fun setupListeners() {

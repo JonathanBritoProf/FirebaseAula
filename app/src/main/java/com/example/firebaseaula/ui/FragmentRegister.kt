@@ -14,6 +14,8 @@ import com.example.firebaseaula.viewmodel.AccessViewModel
 class FragmentRegister : Fragment(R.layout.fragment_register) {
 
     lateinit var accessViewModel: AccessViewModel
+    lateinit var name : EditText
+    lateinit var lastname : EditText
     lateinit var emailTxt : EditText
     lateinit var passwordTxt : EditText
     lateinit var registerbtn : Button
@@ -25,6 +27,8 @@ class FragmentRegister : Fragment(R.layout.fragment_register) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        name = view.findViewById(R.id.txtName)
+        lastname = view.findViewById(R.id.txtLastName)
         emailTxt = view.findViewById(R.id.txtEmail)
         passwordTxt =  view.findViewById(R.id.txtPassword)
         registerbtn =  view.findViewById(R.id.btnRegister)
@@ -35,7 +39,8 @@ class FragmentRegister : Fragment(R.layout.fragment_register) {
 
     private fun setupListener() {
         registerbtn.setOnClickListener {
-            accessViewModel.onCreateUser(emailTxt.text.toString(),passwordTxt.text.toString())
+            accessViewModel.onCreateUser(name.text.toString(), lastname.text.toString(),
+                emailTxt.text.toString(),passwordTxt.text.toString())
         }
     }
     private fun setupObserver() {
