@@ -1,6 +1,7 @@
 package com.example.firebaseaula.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -9,10 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.firebaseaula.R
+import com.example.firebaseaula.data.User
 import com.example.firebaseaula.viewmodel.AccessViewModel
-import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import kotlin.math.sign
 
 class FragmentLogin : Fragment(R.layout.fragment_login) {
 
@@ -35,6 +36,17 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
         registerBtn =  view.findViewById(R.id.btncadastrar)
         setupListeners()
         setupObserver()
+
+        var id = "10203050"
+        var user =  User("Ricardo","Teste","ricardo@teste.com","123@abc")
+        var database = Firebase.database.getReference("users")
+        database.child(id).setValue(user).addOnSuccessListener{
+            Toast.makeText(requireContext(),"Sucesso",Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener {
+            Log.e("TAG","OnError",it)
+            Toast.makeText(requireContext(),"Erro",Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     private fun setupListeners() {
