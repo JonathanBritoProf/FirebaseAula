@@ -20,13 +20,12 @@ class AccessViewModel : ViewModel() {
 
     fun onCreateUser (name : String, lastname :  String, email : String , password : String) {
         var registerTask = firebaseAuth.createUserWithEmailAndPassword(email,password)
-        var user = User(name,lastname,email,password)
 
         registerTask.addOnCompleteListener {
-            var id = firebaseAuth.currentUser?.uid
             if(registerTask.isSuccessful) {
-                var dao = UserDAO()
-                onUserRequestToRegister.value =  dao.insertUser(user)
+                var user = User(firebaseAuth.currentUser?.uid!!, name,lastname,email,password)
+                UserDAO().insertUser(user)
+                onUserRequestToRegister.value =  registerTask.isSuccessful
             }
         }
     }
