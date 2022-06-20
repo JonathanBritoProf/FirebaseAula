@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "590170438234",
+    "firebase_url": "https://digitalhousefb-9d179-default-rtdb.firebaseio.com",
     "project_id": "digitalhousefb-9d179",
     "storage_bucket": "digitalhousefb-9d179.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "590170438234-64g1aj04p0rl32tqi9m44r0b33a3hm2i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebaseaula",
+            "certificate_hash": "5f0902bebd5cba6f9d6f5072e4c0afb90dbebd3d"
+          }
+        },
         {
           "client_id": "590170438234-0vn8p008aei89ntq22nieqtck5b8lpq0.apps.googleusercontent.com",
           "client_type": 3
